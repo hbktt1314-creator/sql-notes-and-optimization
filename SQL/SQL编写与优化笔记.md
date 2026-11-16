@@ -130,7 +130,7 @@ WHERE t1.ds = '20260227' AND t2.ds = '20260227';
 
 ### 三、投影下推
 
-### 二、IN、NOT IN、MAPJOIN、LEFT ANTI JOIN
+### 四、IN、NOT IN、MAPJOIN、LEFT ANTI JOIN
 
 1、当从表不超过1000条时，用IN或者NOT IN
 
@@ -138,7 +138,7 @@ WHERE t1.ds = '20260227' AND t2.ds = '20260227';
 
 3、主从表8:2 9:1 用MAPJOIN，从表不超过512M
 
-### 三、GROUP BY与count(distinct)
+### 五、GROUP BY与count(distinct)
 
 上面两种方式本质就是时间与空间的权衡。
 distinct需要将colA中的所有内容都加载到内存中，大致可以理解为一个hash结构，key自然就是colA的所有值。因为是hash结构，那运算速度自然就快。最后计算hash中有多少key就是最终的结果。count(distinct)只有一个reduce
@@ -152,7 +152,7 @@ HIVE-去重
 
 [DISTINCT 与 GROUP BY](https://cloud.tencent.com/developer/article/1701456)
 
-### 四、数据倾斜-SQL优化
+### 六、数据倾斜-SQL优化
 
 什么是数据倾斜
 
@@ -176,7 +176,7 @@ https://www.kanwangapp.com/thread-1197254-1-1.html
 
 全量：表存在缓慢变化，例如订单先是创建时间、然后有签到时间，然后是拍摄完成时间，一条记录不断更新
 
-### 五、数据重排序
+### 七、数据重排序
 
 order by，全局排序，将数据全部放到一个Reducer排序，对计算性能的开销较大，而且集中在单个Reduce上排序并不能起到分布式处理的效果，效率低；
 
@@ -210,7 +210,7 @@ select * from bigdata_public_dataset.tpcds_1t.customer
 cluster by c_email_address;
 ```
 
-### 六、存储优化
+### 八、存储优化
 
 [合并小文件](https://help.aliyun.com/zh/maxcompute/use-cases/merge-small-files?spm=a2c4g.11186623.help-menu-27797.d_3_0_10_0.5ac878b8zopQZJ)
 
