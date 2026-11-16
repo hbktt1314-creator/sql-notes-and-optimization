@@ -215,3 +215,21 @@ cluster by c_email_address;
 [合并小文件](https://help.aliyun.com/zh/maxcompute/use-cases/merge-small-files?spm=a2c4g.11186623.help-menu-27797.d_3_0_10_0.5ac878b8zopQZJ)
 
 [数据重排](https://help.aliyun.com/zh/maxcompute/use-cases/data-reordering?spm=a2c4g.11186623.help-menu-27797.d_3_0_10_1.64561f720s56v5) 同 五 数据重拍
+
+### 九、explain-查看执行计划
+
+[执行计划](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/explain?spm=a2c63.p38356.0.i44)
+
+### 十、SQL优化
+
+[SQL优化](https://www.alibabacloud.com/help/zh/maxcompute/use-cases/optimize-sql-statements?spm=a2c63.p38356.0.i53#section-mcs-xnh-0i3)
+
+### 十一、存储优化
+
+大表A 小表B
+
+A 做主表：A LEFT JOIN B 或者 B RIGHT JOIN A 或者 A INNER JOIN B，使用 /*+ mapjoin(B) */ 
+
+B做主表：B LEFT JOIN A 或者 A RIGHT JOIN B 或者 A INNER B，使用 /*+dynamicfilter(B, A) */
+
+[动态过滤器](https://help.aliyun.com/zh/maxcompute/user-guide/dynamic-filtering?spm=a2c4g.11186623.help-menu-27797.d_2_1_2_2_11.47423b9238DAtg&scm=20140722.H_210980._.OR_help-T_cn~zh-V_1#section-bu5-bjz-tis)
